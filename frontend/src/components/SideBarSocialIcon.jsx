@@ -16,7 +16,7 @@ const App = (props) => {
         alt={iconLabel}
         className="h-6 lg:h-[28px] w-6 lg:w-[28px]"
       />
-      {/* <div className="text-stone-300 font-bold">{iconLabel}</div> */}
+      <div className="hidden text-stone-300 font-bold">{iconLabel}</div>
     </a>
   );
 };
