@@ -4,9 +4,16 @@ const App = (props) => {
   let svgName = props.svgName || "//";
   let url = props.url || "";
   let iconLabel = props.iconLabel || "";
+  let isHovered = props.isHovered || false;
+  let delay = props.delay || "";
 
   return (
-    <li className="flex w-auto group-hover/nav:w-48 items-center justify-end flex-row gap-5 relative">
+    <li
+      className={
+        "flex w-auto items-center justify-center flex-row gap-5 relative transition-all " +
+        (isHovered ? "translate-x-0" : "translate-x-16")
+      }
+    >
       <img
         src="hashtag.svg"
         alt="Hashtag for Hover"
@@ -14,7 +21,7 @@ const App = (props) => {
       />
       <a
         href={url}
-        className="group/link w-full flex items-center justify-center group-hover/nav:justify-start gap-10"
+        className="group/link w-full flex items-center flex-row justify-start gap-10"
       >
         <div className="h-12 w-12 flex items-center justify-center">
           <ImportSvg
@@ -23,7 +30,17 @@ const App = (props) => {
           />
         </div>
 
-        <div className="group/nav text-xl transition-all delay-1000 hidden opacity-0 group-hover/nav:flex group-hover/nav:opacity-100 text-stone-300 font-bold">
+        <div
+          className={
+            "text-xl transition-all " +
+            delay +
+            " " +
+            (isHovered
+              ? "opacity-100 translate-x-0"
+              : "opacity-0 translate-x-10") +
+            " text-stone-300 font-bold"
+          }
+        >
           {iconLabel}
         </div>
       </a>
